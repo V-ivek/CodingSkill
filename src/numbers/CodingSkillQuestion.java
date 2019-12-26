@@ -43,8 +43,8 @@ public class CodingSkillQuestion {
         for(int m = 0 ; m<list.size();m++){
 //            System.out.println("ll"+list.get(m)+"ll");
         }
-//        for(k = 0; k < list.size()-2; k++) {
-            X = list.get(0);
+        for(k = 0; k < list.size()-2; k++) {
+            X = list.get(k);
             for(i =  1; i<list.size(); i++) {
                 Y = list.get(i);
                 for(j = i + 1; j<list.size(); j++) {
@@ -55,7 +55,7 @@ public class CodingSkillQuestion {
                     }
                 }
             }
-//        }
+        }
     }
 
     public static void main(String[] args) {
@@ -66,14 +66,15 @@ public class CodingSkillQuestion {
             }
         }
         List<Integer> temp = new ArrayList<>();
-        for(int i = 0; i<primes.size(); i++) {
+        for(int i = 0; i<primes.size();) {
             temp = findPrimePerms(primes.get(i), i);
 
 //        System.out.println("\nPrime number = "+ primes.get(i)+"\nPrime permutations are : ");
+            printPossibleAns(temp);
             for(Integer t : temp){
 //                System.out.println(t+" ");
+                primes.remove(new Integer(t));
             }
-            printPossibleAns(temp);
             temp = new ArrayList<>();
         }
     }
